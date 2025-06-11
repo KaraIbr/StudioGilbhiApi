@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro | Ghibli</title>
+  <link rel="stylesheet" href="Register.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Crear cuenta</h1>
+    <form id="registerForm">
+      <input type="text" id="regUser" placeholder="Usuario" required>
+      <input type="password" id="regPass" placeholder="Contraseña" required>
+      <input type="password" id="regPass2" placeholder="Repetir contraseña" required>
+      <button type="submit">Registrarse</button>
+      <p class="link">¿Ya tienes cuenta? <a href="../login/Login.html">Inicia sesión</a></p>
+      <p id="registerError" class="error"></p>
+    </form>
+  </main>
+  <script src="Register.js"></script>
+</body>
+</html>

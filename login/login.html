@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar sesión | Ghibli</title>
+  <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Iniciar sesión</h1>
+    <form id="loginForm">
+      <input type="text" id="loginUser" placeholder="Usuario" required>
+      <input type="password" id="loginPass" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+      <p class="link">¿No tienes cuenta? <a href="../register/Register.html">Regístrate</a></p>
+      <p id="loginError" class="error"></p>
+    </form>
+  </main>
+  <script src="Login.js"></script>
+</body>
+</html>

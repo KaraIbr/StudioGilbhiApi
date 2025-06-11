@@ -1,0 +1,22 @@
+body { margin:0; background: #f8fafc; color: #444; font-family: 'Nunito', Arial, sans-serif; }
+header { background: #b8c5e6; padding: .7rem 0 0.7rem 0; text-align: center; border-bottom: 2px solid #e3e8f6; }
+header .back { color: #7c8bb6; text-decoration: none; position: absolute; left: 1.2rem; top: 1.1rem; font-size: 1.13rem;}
+h1 { margin: 0; font-size: 2rem; color: #6b6689; }
+#main {
+  max-width: 410px; margin: 3rem auto 2rem auto; background: #fff; border-radius: 20px;
+  box-shadow: 0 4px 24px #cbd1e1cc; padding: 2.2rem 2rem 2rem 2rem; animation: fadeIn 1s;
+  display: flex; flex-direction: column; align-items: center;
+}
+img { border-radius: 16px; width: 190px; object-fit: cover; }
+h2 { margin: 1rem 0 .3rem 0; color: #7d8fb7; }
+.data { color: #9b9bb4; margin-bottom: 1.1rem; }
+.desc { margin-bottom: 1.3rem; text-align: center;}
+.fav-btn {
+  background: #fff7d6; border-radius: 50%; width: 38px; height: 38px; border: none;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  font-size: 1.35rem; color: #e95a5a; box-shadow: 0 1px 4px rgba(180,180,160,0.08);
+  margin-bottom: 1.2rem; transition: background 0.2s;
+}
+.fav-btn.active { background: #ffe6e6; color: #bb4444; }
+footer { padding: 1.5rem 0 1.2rem 0; text-align: center; font-size: 1rem; color: #b3bfc9; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(16px);} to { opacity: 1; transform: translateY(0);} }

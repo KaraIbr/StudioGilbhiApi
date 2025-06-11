@@ -92,4 +92,13 @@ Una plataforma web minimalista para explorar películas y personajes de Studio G
 - API de datos: [Studio Ghibli API](https://ghibliapi.vercel.app/)
 - Creado por KaraIbr
 
----
+El nombre de usuario se guarda en sessionStorage al hacer login (se borra al cerrar el navegador)
+Los datos completos de los usuarios (incluyendo favoritos) se guardan en localStorage (persisten después de cerrar el navegador)
+Cada vez que se carga una página:
+Se obtiene el usuario actual de sessionStorage
+Se obtienen todos los usuarios de localStorage
+Se encuentra el usuario actual en el array de usuarios usando users.find()
+
+La sesión es temporal (se cierra al cerrar el navegador)
+Los datos del usuario y sus favoritos son persistentes
+Si no hay sesión activa (ghibli_session), redirige a login

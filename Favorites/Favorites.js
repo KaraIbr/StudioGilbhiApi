@@ -43,8 +43,8 @@ function renderFavs() {
       const card = document.createElement('div');
       card.className = 'card';
       let imgUrl = (currentTab === 'films')
-        ? ghibliPosterUrl(item.id) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
-        : ghibliCharacterImg(item.name) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+        ? item.movie_banner || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+        : `https://static.wikia.nocookie.net/studio-ghibli/images/${item.name.replace(/ /g, '_')}.jpg` || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
       card.innerHTML = `
         <button class="fav active" title="Quitar favorito">&#9733;</button>
         <img src="${imgUrl}" alt="${item.title || item.name}">
@@ -86,20 +86,7 @@ function removeFavorite(type, id, cardElem) {
     if (!me.favorites[type].length) renderFavs();
   }
 }
-function ghibliPosterUrl(id) {
-  const posters = {
-    "2baf70d1-42bb-4437-b551-e5fed5a87abe": "https://image.tmdb.org/t/p/w500/npdB6eFzizki0WaZ1OvKcJrWe97.jpg",
-    "12cfb892-aac0-4c5b-94af-521852e46d6a": "https://image.tmdb.org/t/p/w500/8Cj6I4v3Lk6R5pTKKQvQkA6v1Sk.jpg",
-  };
-  return posters[id];
-}
-function ghibliCharacterImg(name) {
-  const imgs = {
-    "Ashitaka": "https://static.wikia.nocookie.net/studio-ghibli/images/1/1e/Ashitaka.jpg",
-    "San": "https://static.wikia.nocookie.net/studio-ghibli/images/1/1e/San.jpg",
-  };
-  return imgs[name];
-}
+
 function short(text, len) {
   if (!text) return '';
   if (text.length <= len) return text;

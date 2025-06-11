@@ -9,9 +9,8 @@ loginForm.addEventListener('submit', function(e) {
   const users = JSON.parse(localStorage.getItem('ghibli_users') || '[]');
   const found = users.find(u => u.username === user && u.password === pass);
 
-  if (found) {
-    sessionStorage.setItem('ghibli_session', user);
-    window.location.href = "Catalogo.html";
+  if (found) {    sessionStorage.setItem('ghibli_session', user);
+    window.location.href = "../Catalogo/Catalogo.html";
   } else {
     loginError.textContent = "Usuario o contraseña incorrectos.";
   }

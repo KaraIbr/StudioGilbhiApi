@@ -57,13 +57,9 @@ function renderCatalog() {
   data.forEach(item => {
     const isFav = me.favorites[currentTab]?.includes(item.id);
     const card = document.createElement('div');
-    card.className = 'card';
-    let imgUrl = '';
-    if (currentTab === 'films') {
-      imgUrl = ghibliPosterUrl(item.id) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
-    } else {
-      imgUrl = ghibliCharacterImg(item.name) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
-    }
+    card.className = 'card';    let imgUrl = (currentTab === 'films')
+      ? item.movie_banner || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+      : `https://static.wikia.nocookie.net/studio-ghibli/images/${item.name.replace(/ /g, '_')}.jpg` || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
     card.innerHTML = `
       <button class="fav${isFav ? ' active' : ''}" title="Favorito">&#9733;</button>
       <img src="${imgUrl}" alt="${item.title || item.name}">

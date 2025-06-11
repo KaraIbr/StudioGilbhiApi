@@ -18,10 +18,9 @@ else {
   fetch(ENDPOINT).then(r => r.json()).then(data => showDetails(data));
 }
 
-function showDetails(obj) {
-  let img = (type === "films")
-    ? ghibliPosterUrl(obj.id) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
-    : ghibliCharacterImg(obj.name) || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+function showDetails(obj) {  let img = (type === "films")
+    ? obj.movie_banner || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+    : `https://static.wikia.nocookie.net/studio-ghibli/images/${obj.name.replace(/ /g, '_')}.jpg` || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
   let isFav = me.favorites[type]?.includes(obj.id);
 
   titleElem.innerText = obj.title || obj.name || "Detalles";
@@ -49,18 +48,4 @@ function showDetails(obj) {
     users = users.map(u => u.username === user ? me : u);
     localStorage.setItem('ghibli_users', JSON.stringify(users));
   }
-}
-function ghibliPosterUrl(id) {
-  const posters = {
-    "2baf70d1-42bb-4437-b551-e5fed5a87abe": "https://image.tmdb.org/t/p/w500/npdB6eFzizki0WaZ1OvKcJrWe97.jpg",
-    "12cfb892-aac0-4c5b-94af-521852e46d6a": "https://image.tmdb.org/t/p/w500/8Cj6I4v3Lk6R5pTKKQvQkA6v1Sk.jpg",
-  };
-  return posters[id];
-}
-function ghibliCharacterImg(name) {
-  const imgs = {
-    "Ashitaka": "https://static.wikia.nocookie.net/studio-ghibli/images/1/1e/Ashitaka.jpg",
-    "San": "https://static.wikia.nocookie.net/studio-ghibli/images/1/1e/San.jpg",
-  };
-  return imgs[name];
 }
